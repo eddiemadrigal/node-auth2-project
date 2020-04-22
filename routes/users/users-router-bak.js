@@ -9,12 +9,10 @@ router.get('/', verifyToken, (req, res) => {
     if (err) {
       res.sendStatus(403)
     } else {
-      Users.find()
-        .then( users => {
-          users.map( user => {
-            res.send( user.username )
-          })
-        })
+      res.json({
+        message: 'verification good',
+        authData
+      })
     }
   })
 });
